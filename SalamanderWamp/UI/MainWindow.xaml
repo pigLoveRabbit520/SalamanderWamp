@@ -67,10 +67,10 @@
                     </Grid.ColumnDefinitions>
 
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="stackNginx">
-                        <Image Source="/Images/apache.png" Width="130"  Height="60"/>
+                        <Image Source="/Images/apache.png" Width="120"  Height="60"/>
                         <TextBlock x:Name="lblApache" Margin="0, 5" Text="{Binding Running, Converter={StaticResource cvtText}}"  Foreground="{Binding Running, Converter={StaticResource cvtColor}}"
                                    HorizontalAlignment="Center"/>
-                        <Grid>
+                        <Grid Width="88">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="Auto"/>
