@@ -64,11 +64,10 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
-                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="stackNginx">
-                        <Image Source="/Images/nginx.png" Width="80"  Height="60"/>
+                        <Image Source="/Images/apache.png" Width="130"  Height="60"/>
                         <TextBlock x:Name="lblNginx" Margin="0, 5" Text="{Binding Running, Converter={StaticResource cvtText}}"  Foreground="{Binding Running, Converter={StaticResource cvtColor}}"
                                    HorizontalAlignment="Center"/>
                         <Grid>
@@ -84,23 +83,6 @@
                         </Grid>
                     </StackPanel>
 
-
-                    <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="stackPHP">
-                        <Image Source="/Images/php.png" Height="60" />
-                        <TextBlock x:Name="lblPHP" Margin="0, 5"  Text="{Binding Running, Converter={StaticResource cvtText}}"  Foreground="{Binding Running, Converter={StaticResource cvtColor}}"
-                                   HorizontalAlignment="Center"/>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="关" HorizontalAlignment="Center"/>
-                            <ToggleButton x:Name="btnPHP" Grid.Column="1" Checked="phpToggleButton_Checked" Unchecked="phpToggleButton_Unchecked"
-                                          IsChecked="{Binding Running}"/>
-                            <TextBlock Text="开" Grid.Column="2" HorizontalAlignment="Center"/>
-                        </Grid>
-                    </StackPanel>
 
                     <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="stackMysql">
                         <Image Source="/Images/mysql.png" Height="60"/>

@@ -263,12 +263,6 @@
     <Resource Include="Images\minimize.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\php.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\nginx.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\mysql.png" />
   </ItemGroup>
   <ItemGroup>
@@ -300,6 +294,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Menu\Redis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\apache.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

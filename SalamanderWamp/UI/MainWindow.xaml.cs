@@ -29,8 +29,8 @@ namespace SalamanderWamp.UI
     public partial class MainWindow : Window
     {
         private readonly MysqlProgram mysql = new MysqlProgram();
-        private readonly WampProgram nginx = new WampProgram();
-        private readonly PHPProgram php = new PHPProgram();
+        private readonly WampProgram apache = new WampProgram();
+       
         // 应用启动目录
         public static string StartupPath { get { return Constants.APP_STARTUP_PATH; } }
 
@@ -54,9 +54,7 @@ namespace SalamanderWamp.UI
             Application.Current.Resources["ThemeColor"] = Common.Settings.ThemeColor.Value;
             SetupNginx();
             SetupMysql();
-            SetupPHP();
-            this.stackNginx.DataContext = nginx;
-            this.stackPHP.DataContext = php;
+            this.stackNginx.DataContext = apache;
             this.stackMysql.DataContext = mysql;
         }
 
@@ -99,34 +97,18 @@ namespace SalamanderWamp.UI
 
         private void SetupNginx()
         {
-            nginx.Settings = Common.Settings;
-            nginx.exeName = StartupPath + String.Format("{0}/nginx.exe", Common.Settings.NginxDirName.Value);
-            nginx.procName = "nginx";
-            nginx.progName = "Nginx";
-            nginx.workingDir = StartupPath + Common.Settings.NginxDirName.Value;
-            nginx.progLogSection = Log.LogSection.WNMP_NGINX;
-            nginx.startArgs = "";
-            nginx.stopArgs = "-s stop";
-            nginx.killStop = false;
-            nginx.statusLabel = lblNginx;
-            nginx.confDir = "/conf/";
-            nginx.logDir = "/logs/";
-        }
-
-        public void SetupPHP()
-        {
-            php.Settings = Common.Settings;
-            php.exeName = StartupPath + php.Settings.PHPDirName.Value
-                + "/php-cgi.exe";
-            php.procName = "php-cgi";
-            php.progName = "PHP";
-            php.workingDir = StartupPath + Common.Settings.PHPDirName.Value;
-            php.progLogSection = Log.LogSection.WNMP_PHP;
-            php.killStop = true;
-            php.statusLabel = lblPHP;
-            php.confDir = "/php/";
-            php.logDir = "/php/logs/";
-            //SetCurlCAPath();
+            apache.Settings = Common.Settings;
+            apache.exeName = StartupPath + String.Format("{0}/nginx.exe", Common.Settings.NginxDirName.Value);
+            apache.procName = "nginx";
+            apache.progName = "Nginx";
+            apache.workingDir = StartupPath + Common.Settings.NginxDirName.Value;
+            apache.progLogSection = Log.LogSection.WNMP_NGINX;
+            apache.startArgs = "";
+            apache.stopArgs = "-s stop";
+            apache.killStop = false;
+            apache.statusLabel = lblNginx;
+            apache.confDir = "/conf/";
+            apache.logDir = "/logs/";
         }
 
         private void SetupMysql()
@@ -187,11 +169,9 @@ namespace SalamanderWamp.UI
             Log.wnmp_log_notice("Wnmp ready to go!", Log.LogSection.WNMP_MAIN);
             // 自动启动
             if (Common.Settings.StartNginxOnLaunch.Value)
-                nginx.Start();
+                apache.Start();
             if (Common.Settings.StartMysqlOnLaunch.Value)
                 mysql.Start();
-            if (Common.Settings.StartPHPOnLaunch.Value)
-                php.Start();
         }
 
         private void DoCheckIfAppsAreRunningTimer()
@@ -200,9 +180,8 @@ namespace SalamanderWamp.UI
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += (s, e) =>
             {
-                nginx.SetStatus();
+                apache.SetStatus();
                 mysql.SetStatus();
-                php.SetStatus();
             };
             timer.Start();
         }
@@ -312,27 +291,16 @@ namespace SalamanderWamp.UI
 
         private void nginxToggleButton_Checked(object sender, RoutedEventArgs e)
         {
-            nginx.Start();
+            apache.Start();
             e.Handled = true;
         }
 
         private void nginxToggleButton_Unchecked(object sender, RoutedEventArgs e)
         {
-            nginx.Stop();
+            apache.Stop();
             e.Handled = true;
         }
 
-        private void phpToggleButton_Checked(object sender, RoutedEventArgs e)
-        {
-            php.Start();
-            e.Handled = true;
-        }
-
-        private void phpToggleButton_Unchecked(object sender, RoutedEventArgs e)
-        {
-            php.Stop();
-            e.Handled = true;
-        }
 
         private void mysqlToggleButton_Checked(object sender, RoutedEventArgs e)
         {
