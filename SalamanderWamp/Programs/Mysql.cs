@@ -5,13 +5,13 @@ namespace SalamanderWamp.Programs
 {
     class MysqlProgram : WampProgram
     {
-        private readonly ServiceController MysqlController = new ServiceController();
+        private readonly ServiceController mysqlController = new ServiceController();
         public const string ServiceName = "mysql-salamander-wamp";
 
         public MysqlProgram()
         {
-            MysqlController.MachineName = Environment.MachineName;
-            MysqlController.ServiceName = ServiceName;
+            mysqlController.MachineName = Environment.MachineName;
+            mysqlController.ServiceName = ServiceName;
         }
 
         public void RemoveService()
@@ -38,18 +38,16 @@ namespace SalamanderWamp.Programs
         {
             try
             {
-                if (MysqlController.Status == ServiceControllerStatus.Running)
-                {
+                if (IsRunning())
                     return;
-                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Log.wnmp_log_notice("You need to be the administrator to Start Mysql Service", progLogSection);
             }
             try {
-                MysqlController.Start();
-                MysqlController.WaitForStatus(ServiceControllerStatus.Running);
+                mysqlController.Start();
+                mysqlController.WaitForStatus(ServiceControllerStatus.Running);
                 Log.wnmp_log_notice("Started " + progName, progLogSection);
             } catch (Exception ex) {
                 Log.wnmp_log_error("Start(): " + ex.Message, progLogSection);
@@ -58,17 +56,35 @@ namespace SalamanderWamp.Programs
 
         public override void Stop()
         {
-            if(MysqlController.Status == ServiceControllerStatus.Stopped)
+            if(isStopped())
             {
                 return;
             }
             try {
-                MysqlController.Stop();
-                MysqlController.WaitForStatus(ServiceControllerStatus.Stopped);
+                mysqlController.Stop();
+                mysqlController.WaitForStatus(ServiceControllerStatus.Stopped);
                 Log.wnmp_log_notice("Stopped " + progName, progLogSection);
             } catch (Exception ex) {
                 Log.wnmp_log_notice("Stop(): " + ex.Message, progLogSection);
             }
+        }
+
+         /// <summary>
+        /// 通过ServiceController判断服务是否在运行
+        /// </summary>
+        /// <returns></returns>
+        public override bool IsRunning()
+        {
+            return mysqlController.Status == ServiceControllerStatus.Running;
+        }
+
+        /// <summary>
+        /// 通过ServiceController判断服务是否停止
+        /// </summary>
+        /// <returns></returns>
+        private bool isStopped()
+        {
+            return mysqlController.Status == ServiceControllerStatus.Stopped;
         }
 
     }
