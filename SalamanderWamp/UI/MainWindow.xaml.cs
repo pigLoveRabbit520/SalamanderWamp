@@ -29,7 +29,7 @@ namespace SalamanderWamp.UI
     public partial class MainWindow : Window
     {
         private readonly MysqlProgram mysql = new MysqlProgram();
-        private readonly WnmpProgram nginx = new WnmpProgram();
+        private readonly WampProgram nginx = new WampProgram();
         private readonly PHPProgram php = new PHPProgram();
         // 应用启动目录
         public static string StartupPath { get { return Constants.APP_STARTUP_PATH; } }

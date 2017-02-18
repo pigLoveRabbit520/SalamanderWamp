@@ -4,7 +4,7 @@ using SalamanderWamp.UI;
 
 namespace SalamanderWamp.Programs
 {
-    class PHPProgram : WnmpProgram
+    class PHPProgram : WampProgram
     {
         public PHPProgram()
         {

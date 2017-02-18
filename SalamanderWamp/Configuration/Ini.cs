@@ -58,6 +58,13 @@ namespace SalamanderWamp.Configuration
             Value = false,
         };
 
+        public Option<string> ApacheDirName { get { return this.apacheDirName; } set { this.apacheDirName = value; } }
+        private Option<string> apacheDirName = new Option<string>
+        {
+            Name = "apacheDirName",
+            Description = "Apache directory name",
+            Value = "apache24",
+        };
 
         public Option<string> NginxDirName { get { return this.nginxDirName; } set { this.nginxDirName = value; } }
         private Option<string> nginxDirName = new Option<string>
@@ -80,7 +87,7 @@ namespace SalamanderWamp.Configuration
         {
             Name = "phpDirName",
             Description = "PHP directory name",
-            Value = "php",
+            Value = "php7",
         };
 
         public Option<short> PHP_Port { get { return this.php_Port; } set { this.php_Port = value; } }
@@ -170,7 +177,7 @@ namespace SalamanderWamp.Configuration
         public void UpdateSettings()
         {
             using (var sw = new StreamWriter(IniFile)) {
-                sw.WriteLine("[WNMP-SALAMANDER]");
+                sw.WriteLine("[WAMP-SALAMANDER]");
                 foreach (var option in options) {
                     option.PrintIniOption(sw);
                 }

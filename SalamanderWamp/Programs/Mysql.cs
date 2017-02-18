@@ -3,10 +3,10 @@ using System.ServiceProcess;
 
 namespace SalamanderWamp.Programs
 {
-    class MysqlProgram : WnmpProgram
+    class MysqlProgram : WampProgram
     {
         private readonly ServiceController MysqlController = new ServiceController();
-        public const string ServiceName = "mysql-salamander";
+        public const string ServiceName = "mysql-salamander-wamp";
 
         public MysqlProgram()
         {

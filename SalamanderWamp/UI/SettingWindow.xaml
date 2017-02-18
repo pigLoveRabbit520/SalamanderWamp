@@ -63,8 +63,8 @@
                     <TextBlock Grid.Row="2" Text="自动启动Mysql" VerticalAlignment="Center"/>
                     <ToggleButton Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" IsChecked="{Binding StartMysqlOnLaunch.Value, Mode=TwoWay}"/>
 
-                    <TextBlock Grid.Row="3" Text="Nginx目录名" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="3" Grid.Column="1"  Style="{StaticResource RegularTextBox}" Text="{Binding NginxDirName.Value, Mode=TwoWay}"/>
+                    <TextBlock Grid.Row="3" Text="Apache目录名" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="3" Grid.Column="1"  Style="{StaticResource RegularTextBox}" Text="{Binding ApacheDirName.Value, Mode=TwoWay}"/>
 
                     <TextBlock Grid.Row="4" Text="PHP目录名" VerticalAlignment="Center" />
                     <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource RegularTextBox}" Text="{Binding PHPDirName.Value, Mode=TwoWay}"/>

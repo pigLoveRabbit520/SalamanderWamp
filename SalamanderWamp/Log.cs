@@ -19,6 +19,7 @@ namespace SalamanderWamp
         {
             WNMP_MAIN = 0,
             WNMP_NGINX,
+            WNMP_APACHE,
             WNMP_MARIADB,
             WNMP_PHP,
         }
@@ -26,13 +27,15 @@ namespace SalamanderWamp
         {
             switch (logSection) {
                 case LogSection.WNMP_MAIN:
-                    return "Wnmp Main";
+                    return "Wamp Main";
+                case LogSection.WNMP_APACHE:
+                    return "Wamp Apache";
                 case LogSection.WNMP_NGINX:
-                    return "Wnmp Nginx";
+                    return "Wamp Nginx";
                 case LogSection.WNMP_MARIADB:
-                    return "Wnmp Mysql";
+                    return "Wamp Mysql";
                 case LogSection.WNMP_PHP:
-                    return "Wnmp PHP";
+                    return "Wamp PHP";
                 default:
                     return "";
             }
