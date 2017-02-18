@@ -75,7 +75,14 @@ namespace SalamanderWamp.Programs
         /// <returns></returns>
         public override bool IsRunning()
         {
-            return mysqlController.Status == ServiceControllerStatus.Running;
+            try
+            {
+                return mysqlController.Status == ServiceControllerStatus.Running;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         /// <summary>
