@@ -29,7 +29,7 @@ namespace SalamanderWamp.UI
     public partial class MainWindow : Window
     {
         private readonly MysqlProgram mysql = new MysqlProgram();
-        private readonly WampProgram apache = new WampProgram();
+        private readonly Apache apache = new Apache();
        
         // 应用启动目录
         public static string StartupPath { get { return Constants.APP_STARTUP_PATH; } }
@@ -52,7 +52,7 @@ namespace SalamanderWamp.UI
         {
             // 设置主题颜色
             Application.Current.Resources["ThemeColor"] = Common.Settings.ThemeColor.Value;
-            SetupNginx();
+            SetupApache();
             SetupMysql();
             this.stackNginx.DataContext = apache;
             this.stackMysql.DataContext = mysql;
@@ -94,22 +94,26 @@ namespace SalamanderWamp.UI
             e.Handled = true;
         }
 
-
-        private void SetupNginx()
+        
+        /// <summary>
+        /// 设置Apache
+        /// </summary>
+        private void SetupApache()
         {
             apache.Settings = Common.Settings;
-            apache.exeName = StartupPath + String.Format("{0}/nginx.exe", Common.Settings.NginxDirName.Value);
-            apache.procName = "nginx";
-            apache.progName = "Nginx";
-            apache.workingDir = StartupPath + Common.Settings.NginxDirName.Value;
-            apache.progLogSection = Log.LogSection.WNMP_NGINX;
-            apache.startArgs = "";
-            apache.stopArgs = "-s stop";
-            apache.killStop = false;
-            apache.statusLabel = lblNginx;
-            apache.confDir = "/conf/";
-            apache.logDir = "/logs/";
+            apache.exeName = StartupPath + String.Format("{0}/bin/httpd.exe", Common.Settings.ApacheDirName.Value);
+            apache.procName = "apache";
+            apache.progName = "apache";
+            apache.workingDir = StartupPath + Common.Settings.ApacheDirName.Value;
+            apache.progLogSection = Log.LogSection.WNMP_APACHE;
+            apache.startArgs = "-k install -n " + Apache.ServiceName;
+            apache.stopArgs = "";
+            apache.killStop = true;
+            apache.statusLabel = lblApache;
+            apache.confDir = "/mysql/";
+            apache.logDir = "/mysql/data/";
         }
+
 
         private void SetupMysql()
         {
@@ -159,6 +163,13 @@ namespace SalamanderWamp.UI
             Log.setLogComponent(this.txtLog);
             DoCheckIfAppsAreRunningTimer();
             CheckForApps();
+
+            // 安装Apache服务
+            if (Directory.Exists(StartupPath + Common.Settings.ApacheDirName.Value))
+            {
+                if (!apache.ServiceExists())
+                    apache.InstallService();
+            }
             // 安装mysql服务
             if (Directory.Exists(StartupPath + Common.Settings.MysqlDirName.Value))
             {
@@ -192,14 +203,11 @@ namespace SalamanderWamp.UI
         private void CheckForApps()
         {
             Log.wnmp_log_notice("Checking for applications", Log.LogSection.WNMP_MAIN);
-            if (!File.Exists(StartupPath + "/nginx/nginx.exe"))
-                Log.wnmp_log_error("Error: Nginx Not Found", Log.LogSection.WNMP_NGINX);
+            if (!Directory.Exists(StartupPath + "/apache24"))
+                Log.wnmp_log_error("Error: Apache Not Found", Log.LogSection.WNMP_APACHE);
 
             if (!Directory.Exists(StartupPath + "/mysql"))
                 Log.wnmp_log_error("Error: Mysql Not Found", Log.LogSection.WNMP_MARIADB);
-
-            if (!Directory.Exists(StartupPath + "/php"))
-                Log.wnmp_log_error("Error: PHP Not Found", Log.LogSection.WNMP_PHP);
         }
 
 

@@ -68,7 +68,7 @@
 
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="stackNginx">
                         <Image Source="/Images/apache.png" Width="130"  Height="60"/>
-                        <TextBlock x:Name="lblNginx" Margin="0, 5" Text="{Binding Running, Converter={StaticResource cvtText}}"  Foreground="{Binding Running, Converter={StaticResource cvtColor}}"
+                        <TextBlock x:Name="lblApache" Margin="0, 5" Text="{Binding Running, Converter={StaticResource cvtText}}"  Foreground="{Binding Running, Converter={StaticResource cvtColor}}"
                                    HorizontalAlignment="Center"/>
                         <Grid>
                             <Grid.ColumnDefinitions>

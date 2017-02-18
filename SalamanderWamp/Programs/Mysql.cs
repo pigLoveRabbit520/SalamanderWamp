@@ -69,7 +69,7 @@ namespace SalamanderWamp.Programs
             }
         }
 
-         /// <summary>
+        /// <summary>
         /// 通过ServiceController判断服务是否在运行
         /// </summary>
         /// <returns></returns>
