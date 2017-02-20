@@ -73,8 +73,8 @@ namespace SalamanderWamp
             rtfLog = logRichTextBox;            
             wnmp_log_notice("Initializing Control Panel", LogSection.WNMP_MAIN);
             wnmp_log_notice("Control Panel Version: " + Constants.CPVER, LogSection.WNMP_MAIN);
-            wnmp_log_notice("Wnmp Version: " + Constants.APPVER, LogSection.WNMP_MAIN);
-            wnmp_log_notice("Wnmp Directory: " + MainWindow.StartupPath, LogSection.WNMP_MAIN);
+            wnmp_log_notice("Wamp Version: " + Constants.APPVER, LogSection.WNMP_MAIN);
+            wnmp_log_notice("Wamp Directory: " + MainWindow.StartupPath, LogSection.WNMP_MAIN);
         }
     }
 }
