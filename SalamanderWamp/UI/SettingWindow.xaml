@@ -40,7 +40,6 @@
             <TabItem Header="常规">
                 <Grid Margin="15, 10" x:Name="gridRegular">
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
@@ -54,32 +53,30 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="自动启动Nginx" VerticalAlignment="Center" />
-                    <ToggleButton Grid.Column="1" HorizontalAlignment="Center" IsChecked="{Binding StartNginxOnLaunch.Value, Mode=TwoWay}"/>
 
-                    <TextBlock Grid.Row="1" Text="自动启动PHP" VerticalAlignment="Center" />
-                    <ToggleButton Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" IsChecked="{Binding StartPHPOnLaunch.Value, Mode=TwoWay}"/>
+                    <TextBlock  Text="自动启动Apache" VerticalAlignment="Center" />
+                    <ToggleButton Grid.Column="1" HorizontalAlignment="Center" IsChecked="{Binding StartApacheOnLaunch.Value, Mode=TwoWay}" Margin="37.2,18,36.8,20.8" Grid.RowSpan="2"/>
 
-                    <TextBlock Grid.Row="2" Text="自动启动Mysql" VerticalAlignment="Center"/>
-                    <ToggleButton Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" IsChecked="{Binding StartMysqlOnLaunch.Value, Mode=TwoWay}"/>
+                    <TextBlock Grid.Row="1" Text="自动启动Mysql" VerticalAlignment="Center"/>
+                    <ToggleButton Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" IsChecked="{Binding StartMysqlOnLaunch.Value, Mode=TwoWay}"/>
 
-                    <TextBlock Grid.Row="3" Text="Apache目录名" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="3" Grid.Column="1"  Style="{StaticResource RegularTextBox}" Text="{Binding ApacheDirName.Value, Mode=TwoWay}"/>
+                    <TextBlock Grid.Row="2" Text="Apache目录名" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="2" Grid.Column="1"  Style="{StaticResource RegularTextBox}" Text="{Binding ApacheDirName.Value, Mode=TwoWay}"/>
 
-                    <TextBlock Grid.Row="4" Text="PHP目录名" VerticalAlignment="Center" />
-                    <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource RegularTextBox}" Text="{Binding PHPDirName.Value, Mode=TwoWay}"/>
+                    <TextBlock Grid.Row="3" Text="PHP目录名" VerticalAlignment="Center" />
+                    <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource RegularTextBox}" Text="{Binding PHPDirName.Value, Mode=TwoWay}"/>
 
-                    <TextBlock Grid.Row="5" Text="Mysql目录名" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource RegularTextBox}" Text="{Binding MysqlDirName.Value, Mode=TwoWay}"/>
+                    <TextBlock Grid.Row="4" Text="Mysql目录名" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource RegularTextBox}" Text="{Binding MysqlDirName.Value, Mode=TwoWay}"/>
 
-                    <StackPanel Grid.Row="6" Orientation="Horizontal">
+                    <StackPanel Grid.Row="5" Orientation="Horizontal">
                         <TextBlock  Text="PHP进程数" VerticalAlignment="Center" />
                         <TextBlock VerticalAlignment="Center" Text="{Binding PHP_Processes.Value}" Margin="5, 0"/>
                     </StackPanel>
                    
-                    <Slider Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" Minimum="1" Maximum="5" Value="{Binding PHP_Processes.Value, Mode=TwoWay}"/>
+                    <Slider Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Minimum="1" Maximum="5" Value="{Binding PHP_Processes.Value, Mode=TwoWay}"/>
 
-                    <Button Grid.ColumnSpan="2"  Grid.Row="7" Style="{StaticResource SaveBtn}" Click="btnSaveRegular_Click"/>
+                    <Button Grid.ColumnSpan="2"  Grid.Row="6" Style="{StaticResource SaveBtn}" Click="btnSaveRegular_Click"/>
                 </Grid>
             </TabItem>
             
