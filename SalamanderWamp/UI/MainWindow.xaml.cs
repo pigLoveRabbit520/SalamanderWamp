@@ -177,7 +177,7 @@ namespace SalamanderWamp.UI
                     mysql.InstallService();
             }
 
-            Log.wnmp_log_notice("Wnmp ready to go!", Log.LogSection.WNMP_MAIN);
+            Log.wnmp_log_notice("Wamp ready to go!", Log.LogSection.WNMP_MAIN);
             // 自动启动
             if (Common.Settings.StartNginxOnLaunch.Value)
                 apache.Start();
