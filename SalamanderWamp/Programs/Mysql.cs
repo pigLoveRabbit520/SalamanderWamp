@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SalamanderWamp.Tool;
+using System;
 using System.ServiceProcess;
 
 namespace SalamanderWamp.Programs

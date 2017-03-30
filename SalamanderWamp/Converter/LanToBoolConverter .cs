@@ -1,6 +1,5 @@
 ﻿using SalamanderWamp.UI;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Data;
 
@@ -10,8 +9,8 @@ namespace SalamanderWamp.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            CodePanel.ProgramLan lan = (CodePanel.ProgramLan)value;
-            return lan == (CodePanel.ProgramLan)int.Parse(parameter.ToString());
+            CodePanelWin.ProgramLan lan = (CodePanelWin.ProgramLan)value;
+            return lan == (CodePanelWin.ProgramLan)int.Parse(parameter.ToString());
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -21,7 +20,7 @@ namespace SalamanderWamp.Converter
             {
                 return null;
             }
-            return (CodePanel.ProgramLan)int.Parse(parameter.ToString());
+            return (CodePanelWin.ProgramLan)int.Parse(parameter.ToString());
         }
     }
 }

@@ -5,6 +5,7 @@ using SalamanderWamp.UI;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.ComponentModel;
+using SalamanderWamp.Tool;
 
 namespace SalamanderWamp.Programs
 {

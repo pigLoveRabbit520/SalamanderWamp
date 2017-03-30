@@ -21,7 +21,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>D:\wamp\</OutputPath>
+    <OutputPath>D:\SalamanderWamp\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -124,35 +124,42 @@
     <Compile Include="Converter\LanToBoolConverter .cs" />
     <Compile Include="Converter\ProcessColorConverter.cs" />
     <Compile Include="Converter\ProcessTextConverter.cs" />
-    <Compile Include="DispatcherHelper.cs" />
+    <Compile Include="Tool\DispatcherHelper.cs" />
     <Compile Include="Programs\Apache.cs" />
-    <Compile Include="UI\AboutWindow.xaml.cs">
-      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    <Compile Include="Tool\CodeHelper.cs" />
+    <Compile Include="Tool\HttpHelper.cs" />
+    <Compile Include="Tool\Log.cs" />
+    <Compile Include="UI\AboutWin.xaml.cs">
+      <DependentUpon>AboutWin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\ChangeThemeColorWindow.xaml.cs">
-      <DependentUpon>ChangeThemeColorWindow.xaml</DependentUpon>
+    <Compile Include="UI\ChangeThemeColorWin.xaml.cs">
+      <DependentUpon>ChangeThemeColorWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CodePanelWin.xaml.cs">
+      <DependentUpon>CodePanelWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\ColorPicker.xaml.cs">
       <DependentUpon>ColorPicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\ImageMenu.cs" />
-    <Compile Include="UI\CodePanel.xaml.cs">
-      <DependentUpon>CodePanel.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UI\Loading.xaml.cs">
       <DependentUpon>Loading.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\RedisWindow.xaml.cs">
-      <DependentUpon>RedisWindow.xaml</DependentUpon>
+    <Compile Include="UI\RedisWin.xaml.cs">
+      <DependentUpon>RedisWin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\SettingWindow.xaml.cs">
-      <DependentUpon>SettingWindow.xaml</DependentUpon>
+    <Compile Include="UI\SettingWin.xaml.cs">
+      <DependentUpon>SettingWin.xaml</DependentUpon>
     </Compile>
-    <Page Include="UI\AboutWindow.xaml">
+    <Page Include="UI\AboutWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\ChangeThemeColorWindow.xaml">
+    <Page Include="UI\ChangeThemeColorWin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\CodePanelWin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -160,15 +167,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\CodePanel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UI\Loading.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\MainWindow.xaml">
+    <Page Include="UI\MainWin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -180,18 +183,17 @@
     <Compile Include="Configuration\Option.cs" />
     <Compile Include="Configuration\PHPConfigurationManager.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="Log.cs" />
     <Compile Include="Programs\Mysql.cs" />
     <Compile Include="Programs\WampProgram.cs" />
-    <Compile Include="UI\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="UI\MainWin.xaml.cs">
+      <DependentUpon>MainWin.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UI\RedisWindow.xaml">
+    <Page Include="UI\RedisWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\SettingWindow.xaml">
+    <Page Include="UI\SettingWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

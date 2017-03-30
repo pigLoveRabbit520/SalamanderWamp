@@ -139,7 +139,7 @@ namespace SalamanderWamp.Configuration
             options.Add(PHPDirName);
         }
 
-        private readonly string IniFile = UI.MainWindow.StartupPath + @"\Wamp.ini";
+        private readonly string IniFile = UI.MainWin.StartupPath + @"\Wamp.ini";
         private string IniFileStr;
         private bool LoadIniFile()
         {
